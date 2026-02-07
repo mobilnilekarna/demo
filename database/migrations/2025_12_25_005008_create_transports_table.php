@@ -1,0 +1,49 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('transports', function (Blueprint $table) {
+            $table->id();
+            
+            // Název dopravy
+            $table->string('name');
+            
+            // Popis dopravy
+            $table->text('description')->nullable();
+            
+            // Cena dopravy
+            $table->decimal('price', 8, 2)->default(0);
+            
+            // Cena zdarma od (pokud je cena objednávky vyšší, doprava je zdarma)
+            $table->decimal('free_from', 10, 2)->nullable();
+            
+            // Pořadí zobrazení
+            $table->integer('order')->default(0)->index();
+            
+            // Aktivnost (zda je doprava aktivní)
+            $table->boolean('active')->default(true)->index();
+            
+            // Typ dopravy (personal, cp-np, cp-dr, atd.)
+            $table->string('type', 20)->index();
+            
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('transports');
+    }
+};

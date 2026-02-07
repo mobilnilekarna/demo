@@ -1,0 +1,25 @@
+{
+  "welcome": "Welcome",
+  "hello": "Hello",
+  "dashboard": {
+    "title": "Dashboard",
+    "overview": "Overview"
+  },
+  "buttons": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit"
+  },
+  "messages": {
+    "success": "Operation was successful",
+    "error": "An error occurred"
+  },
+  "validation": {
+    "email": {
+      "required": "Email is required",
+      "invalid": "Invalid email"
+    }
+  }
+}
+
