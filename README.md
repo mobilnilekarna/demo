@@ -134,4 +134,8 @@ php artisan serve
 npm run dev
 ```
 
-Tím získáte hot reload pro frontend změny a plnou funkcionalnost Laravel backendu.
+Testování Backendu
+php -d memory_limit=1G vendor\bin\phpstan analyse {$folder}
+
+## Git cores
+Information about git core merge
