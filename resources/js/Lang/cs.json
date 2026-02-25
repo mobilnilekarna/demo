@@ -1,0 +1,29 @@
+{
+  "welcome": "Vítejte",
+  "hello": "Ahoj",
+  "dashboard": {
+    "title": "Nástěnka",
+    "overview": "Přehled"
+  },
+  "buttons": {
+    "save": "Uložit",
+    "cancel": "Zrušit",
+    "delete": "Smazat",
+    "edit": "Upravit"
+  },
+  "messages": {
+    "success": "Operace byla úspěšná",
+    "error": "Došlo k chybě"
+  },
+  "validation": {
+    "email": {
+      "required": "Email je povinný šéfe!",
+      "invalid": "Neplatný email šéfe!"
+    }
+  },
+  "newsletter": {
+    "success": "Newsletter odebírán",
+    "error": "Chyba při odebírání newsletteru"
+  }
+}
+

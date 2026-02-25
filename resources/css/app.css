@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* v-tour-guide styles */
+@import 'v-tour-guide/dist/v-tour-guide.css';
+
+/* Custom styles pro tour guide - aby obsah zůstal viditelný */
+/* Overlay má nižší z-index než hlavní obsah, aby ho nezakrýval */
+.tour-guide-active [style*="z-index: 9998"] {
+  pointer-events: none !important;
+  z-index: 25 !important;
+}
+
+/* Highlight a tooltip zůstávají viditelné */
+.tour-guide-active [style*="z-index: 9999"] {
+  pointer-events: auto !important;
+  z-index: 10000 !important;
+}
+
+/* Hlavní obsah má vyšší z-index než overlay, aby byl viditelný */
+.tour-guide-active .min-h-screen > main {
+  position: relative;
+  z-index: 50 !important;
+}
+
+.tour-guide-active main {
+  pointer-events: auto !important;
+}
+
+.tour-guide-active main * {
+  pointer-events: auto !important;
+}
+
+/* Když je tour na fixed menu, zajistit že obsah zůstane viditelný */
+/* Overlay nesmí zakrývat obsah - použijeme vyšší z-index pro obsah */
+.tour-guide-active:has(aside[data-tour-guide="step-1"]) .min-h-screen > main {
+  position: relative;
+  z-index: 100 !important;
+}
+
+/* Overlay pro menu má nižší z-index */
+.tour-guide-active:has(aside[data-tour-guide="step-1"]) [style*="z-index: 9998"] {
+  z-index: 25 !important;
+  pointer-events: none !important;
+}
+
+/* Custom CSS */
+@layer base {
+  html {
+    font-family: 'Inter', ui-sans-serif, system-ui;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white focus:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-600 hover:bg-gray-700 text-white focus:ring-gray-500;
+  }
+
+  .btn-danger {
+    @apply bg-secondary-600 hover:bg-secondary-700 text-white focus:ring-secondary-500;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6;
+  }
+
+  .input {
+    @apply block w-full rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500;
+  }
+}
+
+.active {
+    @apply bg-primary-600 text-white;
+}
+
+.page-transition-out {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* CookieConsent Customizace */
+:root {
+    --cc-primary-color: #4B5563;
+    --cc-secondary-color: #6B7280;
+    --cc-btn-primary-bg: #4B5563;
+    --cc-btn-primary-text: #ffffff;
+    --cc-btn-primary-hover-bg: #374151;
+    --cc-btn-secondary-bg: #E5E7EB;
+    --cc-btn-secondary-text: #374151;
+    --cc-btn-secondary-hover-bg: #D1D5DB;
+}
+
+/* Dark mode podpora pro CookieConsent */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --cc-primary-color: #F3F4F6;
+        --cc-secondary-color: #D1D5DB;
+        --cc-btn-primary-bg: #4B5563;
+        --cc-btn-primary-text: #ffffff;
+        --cc-btn-primary-hover-bg: #6B7280;
+        --cc-btn-secondary-bg: #374151;
+        --cc-btn-secondary-text: #F3F4F6;
+        --cc-btn-secondary-hover-bg: #4B5563;
+    }
+}
+
+/* Customizace modálního okna */
+.cc-window {
+    font-family: 'Inter', ui-sans-serif, system-ui;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.cc-btn {
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.cc-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+h2 span {
+    position: relative;
+    display: inline-block;
+    padding: 5px 10px;
+    margin: -5px 0px;
+    border-radius: 10px;
+}
